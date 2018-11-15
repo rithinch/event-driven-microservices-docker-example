@@ -1,6 +1,6 @@
 # Local News Application
 
-Scalable Local News Application (Proof of Concept), based on simplified event-driven microservices architecture and Docker containers.
+Proof of Concept for a scalable Local News Application, based on simplified event-driven microservices architecture and Docker containers.
 
 ## Introduction
 
