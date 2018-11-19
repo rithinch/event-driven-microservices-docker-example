@@ -4,11 +4,13 @@ import "google/protobuf/timestamp.proto";
 // Service Interface...
 
 service ArticleManagementService {
+    rpc addArticle (ArticleRequest) returns (ArticleResponse);
+    rpc addArticles (stream ArticleRequest) returns (stream ArticleResponse);
+    rpc addImage (stream AddImageRequest) returns (AddImageResponse);
+    rpc deleteByArticleUID (DeleteArticleRequest) returns (DeleteArticleResponse);
     rpc getByArticleUID (GetByArticleUIDRequest) returns (ArticleResponse);
     rpc getAll (GetAllRequest) returns (stream ArticleResponse);
-    rpc save (ArticleRequest) returns (ArticleResponse);
-    rpc saveAll (stream ArticleRequest) returns (stream ArticleResponse);
-    rpc addImage (stream AddImageRequest) returns (AddImageResponse);
+    rpc markArticleVerified (VerifyArticleRequest) returns (VerifyArticleResponose);
 }
 
 // Entities...
@@ -19,9 +21,13 @@ message Article {
     string description = 3;
     string body = 4;
     int32 likes = 5;
-    google.protobuf.Timestamp createdTimeStamp = 1;
-    repeated Tag tags = 6;
-    repeated string imageUris = 7;
+    google.protobuf.Timestamp createdTimeStamp = 6;
+    repeated Tag tags = 7;
+    repeated Image images = 8;
+}
+
+message Image {
+    bytes data = 1;
 }
 
 message Tag {
@@ -47,12 +53,12 @@ message AddImageRequest {
     bytes data = 2;
 }
 
-message AddImageResponse {
+message GenericResponse {
     bool isOk = 1;
 }
 
 message GetAllArticlesRequest {}
 
-message GetByArticleUIDRequest {
+message ArticleUIDRequest {
     string uid = 1;
 }
