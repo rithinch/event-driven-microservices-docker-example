@@ -21,7 +21,7 @@ message Article {
     int32 likes = 5;
     google.protobuf.Timestamp createdTimeStamp = 1;
     repeated Tag tags = 6;
-    repeated Image images = 7;
+    repeated string imageUris = 7;
 }
 
 message Tag {
