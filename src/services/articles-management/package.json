@@ -12,6 +12,8 @@
     "@azure/cosmos": "^2.0.5",
     "async": "^2.6.1",
     "dotenv": "^6.1.0",
+    "google-protobuf": "^3.6.1",
+    "grpc": "^1.16.1",
     "node-uuid": "^1.4.8"
   }
 }
