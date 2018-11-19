@@ -1,0 +1,17 @@
+{
+  "name": "articles-management",
+  "version": "1.0.0",
+  "description": "Articles Management Service - responsible for handling news articles related operations such as creating, reading, updating, deleting, verifying, reporting etc.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rithin Chalumuri",
+  "license": "MIT",
+  "dependencies": {
+    "@azure/cosmos": "^2.0.5",
+    "async": "^2.6.1",
+    "dotenv": "^6.1.0",
+    "node-uuid": "^1.4.8"
+  }
+}
