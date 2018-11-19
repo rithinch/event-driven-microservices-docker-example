@@ -7,10 +7,10 @@ service ArticleManagementService {
     rpc addArticle (ArticleRequest) returns (ArticleResponse);
     rpc addArticles (stream ArticleRequest) returns (stream ArticleResponse);
     rpc addImage (stream AddImageRequest) returns (AddImageResponse);
-    rpc deleteByArticleUID (DeleteArticleRequest) returns (DeleteArticleResponse);
-    rpc getByArticleUID (GetByArticleUIDRequest) returns (ArticleResponse);
+    rpc deleteByArticleUID (ArticleUIDRequest) returns (GenericResponse);
+    rpc getByArticleUID (ArticleUIDRequest) returns (ArticleResponse);
     rpc getAll (GetAllRequest) returns (stream ArticleResponse);
-    rpc markArticleVerified (VerifyArticleRequest) returns (VerifyArticleResponose);
+    rpc markArticleVerified (ArticleUIDRequest) returns (GenericResponse);
 }
 
 // Entities...
