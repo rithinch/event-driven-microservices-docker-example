@@ -9,8 +9,9 @@ service ArticleManagementService {
     rpc addImage (stream AddImageRequest) returns (AddImageResponse);
     rpc deleteByArticleUID (ArticleUIDRequest) returns (GenericResponse);
     rpc getByArticleUID (ArticleUIDRequest) returns (ArticleResponse);
-    rpc getAll (GetAllRequest) returns (stream ArticleResponse);
-    rpc markArticleVerified (ArticleUIDRequest) returns (GenericResponse);
+    rpc getAll (EmptyRequest) returns (stream ArticleResponse);
+    rpc verifyArticle (ArticleUIDRequest) returns (GenericResponse);
+    rpc rejectArticle (ArticleUIDRequest) returns (GenericResponse);
 }
 
 // Entities...
@@ -36,6 +37,10 @@ message Tag {
 
 // Requests - Responses...
 
+message ArticleUIDRequest {
+    string uid = 1;
+}
+
 message ArticleResponse {
     Article article = 1;
 }
@@ -53,12 +58,8 @@ message AddImageRequest {
     bytes data = 2;
 }
 
+message EmptyRequest {}
+
 message GenericResponse {
     bool isOk = 1;
-}
-
-message GetAllArticlesRequest {}
-
-message ArticleUIDRequest {
-    string uid = 1;
 }
