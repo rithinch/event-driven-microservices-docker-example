@@ -10,6 +10,7 @@ service ArticleManagementService {
     rpc deleteByArticleUID (ArticleUIDRequest) returns (GenericResponse);
     rpc getByArticleUID (ArticleUIDRequest) returns (ArticleResponse);
     rpc getAll (EmptyRequest) returns (stream ArticleResponse);
+    rpc getAllPendingVerificationArticles (EmptyRequest) returns (stream ArticleResponse);
     rpc verifyArticle (ArticleUIDRequest) returns (GenericResponse);
     rpc rejectArticle (ArticleUIDRequest) returns (GenericResponse);
 }
