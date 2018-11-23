@@ -1,4 +1,5 @@
 let config = {
+    name: "Article Management Service",
     port: process.env.PORT,
     host: process.env.HOST,
     messagebus: process.env.MESSAGE_BUS,

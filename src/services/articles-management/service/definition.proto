@@ -6,7 +6,7 @@ import "google/protobuf/timestamp.proto";
 service ArticleManagementService {
     rpc addArticle (ArticleRequest) returns (ArticleResponse);
     rpc addArticles (stream ArticleRequest) returns (stream ArticleResponse);
-    rpc addImage (stream AddImageRequest) returns (AddImageResponse);
+    rpc addImage (stream AddImageRequest) returns (GenericResponse);
     rpc deleteByArticleUID (ArticleUIDRequest) returns (GenericResponse);
     rpc getByArticleUID (ArticleUIDRequest) returns (ArticleResponse);
     rpc getAll (EmptyRequest) returns (stream ArticleResponse);

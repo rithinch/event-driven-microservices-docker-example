@@ -4,21 +4,25 @@
   "description": "Articles Management Service - responsible for handling news articles related operations such as creating, reading, updating, deleting, verifying, reporting etc.",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "jest --coverage",
     "watch": "node_modules/.bin/jest --coverage --watchAll"
   },
   "jest": {
-    "verbose": true
+    "verbose": false
   },
   "author": "Rithin Chalumuri",
   "license": "MIT",
   "dependencies": {
     "@azure/cosmos": "^2.0.5",
+    "@grpc/proto-loader": "^0.3.0",
     "async": "^2.6.1",
     "dotenv": "^6.1.0",
     "google-protobuf": "^3.6.1",
     "grpc": "^1.16.1",
     "jest": "^23.6.0",
+    "mali": "^0.10.2",
+    "mali-logger": "^0.2.2",
     "node-uuid": "^1.4.8"
   }
 }
