@@ -11,13 +11,8 @@ let server;
 function main(){
 
     server = new mali(SERVICE_INTERFACE_PROTO);
-
-    server.use({
-        ArticleManagementService: articleManagementService
-    });
-
+    server.use(articleManagementService);
     server.use(logger());
-
     server.start(hostport);
     console.log(`${server.name} is running on ${hostport}`);
 }

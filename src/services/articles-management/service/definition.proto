@@ -5,10 +5,9 @@ import "google/protobuf/timestamp.proto";
 
 service ArticleManagementService {
     rpc addArticle (ArticleRequest) returns (ArticleResponse);
-    rpc addArticles (stream ArticleRequest) returns (stream ArticleResponse);
     rpc addImage (stream AddImageRequest) returns (GenericResponse);
-    rpc deleteByArticleUID (ArticleUIDRequest) returns (GenericResponse);
-    rpc getByArticleUID (ArticleUIDRequest) returns (ArticleResponse);
+    rpc deleteArticle (ArticleUIDRequest) returns (GenericResponse);
+    rpc getArticle (ArticleUIDRequest) returns (ArticleResponse);
     rpc getAll (EmptyRequest) returns (stream ArticleResponse);
     rpc getAllPendingVerificationArticles (EmptyRequest) returns (stream ArticleResponse);
     rpc verifyArticle (ArticleUIDRequest) returns (GenericResponse);
@@ -23,6 +22,7 @@ message Article {
     string description = 3;
     string body = 4;
     int32 likes = 5;
+    bool status = 6;
     google.protobuf.Timestamp createdTimeStamp = 6;
     repeated Tag tags = 7;
     repeated Image images = 8;
@@ -39,7 +39,7 @@ message Tag {
 // Requests - Responses...
 
 message ArticleUIDRequest {
-    string uid = 1;
+    required string uid = 1;
 }
 
 message ArticleResponse {
@@ -47,11 +47,11 @@ message ArticleResponse {
 }
 
 message ArticleRequest {
-    string title = 1;
-    string description = 2;
-    string body = 3;
-    repeated Tag tags = 4;
-    repeated Image images = 5;
+    required string title = 1;
+    required string description = 2;
+    required string body = 3;
+    optional repeated Tag tags = 4;
+    optional repeated Image images = 5;
 }
 
 message AddImageRequest {
