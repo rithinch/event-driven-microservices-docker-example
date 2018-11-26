@@ -1,5 +1,6 @@
 let config = {
     name: "Article Management Service",
+    baseAPIRoute: "api",
     port: process.env.PORT,
     host: process.env.HOST,
     messagebus: process.env.MESSAGE_BUS,
@@ -10,8 +11,7 @@ let config = {
         password: "TlJ7hnd7iRck25fUFFWYgfJFdK2oSH1N2kbBQjFzb66nqFx486JP6eaCKAQrlyn3Cnwxn6MzJtF5ABeyN9CKYQ=="
     },
     services:{
-        authentication: process.env.AUTHENTICATION_SERVICE,
-        mediaManagement: process.env.MEDIA_MANAGEMENT_SERVICE
+        mediaManagement: process.env.MEDIA_MANAGEMENT_SERVICE_URI
     }
 };
 
