@@ -17,6 +17,11 @@
     "@azure/cosmos": "^2.0.5",
     "dotenv": "^6.1.0",
     "jest": "^23.6.0",
+    "koa": "^2.6.2",
+    "koa-bodyparser": "^4.2.1",
+    "koa-helmet": "^4.0.0",
+    "koa-logger": "^3.2.0",
+    "koa-router": "^7.4.0",
     "mongoose": "^5.3.13",
     "node-uuid": "^1.4.8"
   }
