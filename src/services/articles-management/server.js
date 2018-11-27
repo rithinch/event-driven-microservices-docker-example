@@ -27,7 +27,7 @@ server.use(helmet());
 server.use(articleRouter.routes()).use(articleRouter.allowedMethods({throw: true}));
 
 // Run the API Server
-server.listen(config.port, config.host, () => {
-    console.log(`${config.name} is running at ${config.host}:${config.port}/`)
+server.listen(config.port, () => {
+    console.log(`${config.name} is running on port ${config.port}/`)
 });
 
