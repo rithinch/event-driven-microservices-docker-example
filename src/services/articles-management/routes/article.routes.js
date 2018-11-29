@@ -1,10 +1,10 @@
-const config = require("../environment/config");
-const koaRouter = require("koa-router");
-const articleController = require("../controllers/article.controller");
+const KoaRouter = require('koa-router');
+const config = require('../environment/config');
+const articleController = require('../controllers/article.controller');
 
 const api = 'articles';
 
-const router = new koaRouter();
+const router = new KoaRouter();
 
 router.prefix(`/${config.baseAPIRoute}/${api}`);
 
