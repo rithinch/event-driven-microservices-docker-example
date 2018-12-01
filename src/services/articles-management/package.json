@@ -7,10 +7,19 @@
     "start": "node ./src/server.js",
     "test": "jest --coverage",
     "watch": "jest --coverage --watchAll",
-    "lint": "eslint ."
+    "lint": "eslint ./src && eslint ./tests"
   },
   "jest": {
-    "verbose": true
+    "testEnvironment": "node",
+    "verbose": true,
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": -10
+      }
+    }
   },
   "author": "Rithin Chalumuri",
   "license": "MIT",
@@ -27,6 +36,7 @@
     "eslint": "^5.9.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
-    "jest": "^23.6.0"
+    "jest": "^23.6.0",
+    "supertest": "^3.3.0"
   }
 }

@@ -12,6 +12,7 @@ const config = {
   services: {
     mediaManagement: process.env.MEDIA_MANAGEMENT_SERVICE_URI,
   },
+  startedMessage: `${this.name} is running on port ${this.port}/`,
 };
 
 module.exports = config;
