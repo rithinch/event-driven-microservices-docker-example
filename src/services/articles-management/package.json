@@ -2,34 +2,15 @@
   "name": "articles-management",
   "version": "1.0.0",
   "description": "Articles Management Service - responsible for handling news articles related operations such as creating, reading, updating, deleting, verifying, reporting etc.",
-  "main": "server.js",
+  "main": "./src/server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node ./src/server.js",
     "test": "jest --coverage",
     "watch": "jest --coverage --watchAll",
     "lint": "eslint ."
   },
   "jest": {
-    "verbose": true,
-    "collectCoverage": true,
-    "coverageThreshold": {
-      "global": {
-        "branches": 100,
-        "functions": 100,
-        "lines": 100,
-        "statements": -10
-      }
-    },
-    "collectCoverageFrom": [
-      "**/*.{js,jsx}",
-      "!**/node_modules/**",
-      "!**/coverage/**"
-    ],
-    "coverageReporters": [
-      "json-summary",
-      "text",
-      "lcov"
-    ]
+    "verbose": true
   },
   "author": "Rithin Chalumuri",
   "license": "MIT",
