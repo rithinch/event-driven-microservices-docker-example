@@ -14,4 +14,4 @@ RUN cd /server; \
 EXPOSE 3000
 
 # Run node 
-CMD ["node", "/server/server.js"]
+CMD ["node", "/server/src/server.js"]
