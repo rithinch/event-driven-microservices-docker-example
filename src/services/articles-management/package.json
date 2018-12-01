@@ -6,17 +6,35 @@
   "scripts": {
     "start": "node server.js",
     "test": "jest --coverage",
-    "watch": "node_modules/.bin/jest --coverage --watchAll",
+    "watch": "jest --coverage --watchAll",
     "lint": "eslint ."
   },
   "jest": {
-    "verbose": false
+    "verbose": true,
+    "collectCoverage": true,
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": -10
+      }
+    },
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/coverage/**"
+    ],
+    "coverageReporters": [
+      "json-summary",
+      "text",
+      "lcov"
+    ]
   },
   "author": "Rithin Chalumuri",
   "license": "MIT",
   "dependencies": {
     "dotenv": "^6.1.0",
-    "jest": "^23.6.0",
     "koa": "^2.6.2",
     "koa-bodyparser": "^4.2.1",
     "koa-helmet": "^4.0.0",
@@ -27,6 +45,7 @@
   "devDependencies": {
     "eslint": "^5.9.0",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0"
+    "eslint-plugin-import": "^2.14.0",
+    "jest": "^23.6.0"
   }
 }

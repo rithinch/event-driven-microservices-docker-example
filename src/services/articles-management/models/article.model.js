@@ -1,14 +1,12 @@
 const mongoose = require('mongoose');
 
-const { Schema } = mongoose.Schema;
-
-const ArticleSchema = new Schema({
-  authorUID: String,
+const ArticleSchema = new mongoose.Schema({
+  authorUID: { type: String, require: true },
   createdDate: { type: Date, default: Date.now },
   updatedDate: { type: Date, default: Date.now },
-  title: String,
-  description: String,
-  body: String,
+  title: { type: String, require: true },
+  description: { type: String, require: true },
+  body: { type: String, require: true },
   meta: {
     likes: { type: Number, default: 0 },
   },
