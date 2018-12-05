@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd ./services/events-management
+npm run testOnly
