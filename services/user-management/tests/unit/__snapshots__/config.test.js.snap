@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`config should load default values 1`] = `
+Object {
+  "baseAPIRoute": "api",
+  "db": Object {
+    "password": "TlJ7hnd7iRck25fUFFWYgfJFdK2oSH1N2kbBQjFzb66nqFx486JP6eaCKAQrlyn3Cnwxn6MzJtF5ABeyN9CKYQ==",
+    "uri": "mongodb://chalumuv-localnewsapplication.documents.azure.com:10255/?ssl=true&replicaSet=globaldb",
+    "username": "chalumuv-localnewsapplication",
+  },
+  "environment": "dev",
+  "messagebus": "amqp://rabbitmq",
+  "name": "User Management Service",
+  "port": 8080,
+  "services": Object {},
+  "startedMessage": "User Management Service is running on port 8080/",
+}
+`;
