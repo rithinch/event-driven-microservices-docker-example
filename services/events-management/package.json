@@ -7,7 +7,20 @@
     "start": "node ./src/server.js",
     "test": "jest --coverage",
     "watch": "jest --coverage --watchAll",
-    "lint": "eslint ./src && eslint ./tests"
+    "lint": "eslint ./src && eslint ./tests",
+    "checkCodeQuality" : "eslint ./src && eslint ./tests && jest --coverage"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "verbose": true,
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": -10
+      }
+    }
   },
   "author": "Rithin Chalumuri",
   "license": "MIT",
