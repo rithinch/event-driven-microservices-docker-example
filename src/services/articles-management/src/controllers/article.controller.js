@@ -15,14 +15,15 @@ const articleController = {
     } catch (err) {
       if (err.name === 'CastError' || err.name === 'NotFoundError') {
         ctx.throw(404);
+      } else {
+        ctx.throw(500);
       }
-      ctx.throw(500);
     }
   },
 
   add: async (ctx) => {
     try {
-      const newArticle = await new Article(ctx.request.body).save();
+      const newArticle = await Article.create(ctx.request.body);
       ctx.body = newArticle;
     } catch (err) {
       ctx.throw(422);
@@ -42,8 +43,9 @@ const articleController = {
     } catch (err) {
       if (err.name === 'CastError' || err.name === 'NotFoundError') {
         ctx.throw(404);
+      } else {
+        ctx.throw(500);
       }
-      ctx.throw(500);
     }
   },
 
@@ -57,8 +59,9 @@ const articleController = {
     } catch (err) {
       if (err.name === 'CastError' || err.name === 'NotFoundError') {
         ctx.throw(404);
+      } else {
+        ctx.throw(500);
       }
-      ctx.throw(500);
     }
   },
 };

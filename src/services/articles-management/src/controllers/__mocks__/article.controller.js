@@ -1,4 +1,4 @@
-const articleController = {}; // jest.genMockFromModule('../article.controller');
+const articleController = {};
 
 articleController.find = jest.fn(async (ctx) => {
   ctx.status = 200;
