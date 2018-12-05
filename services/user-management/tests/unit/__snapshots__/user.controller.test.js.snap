@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`findById should return user when correct id is passed 1`] = `
+Object {
+  "emailAddress": "test@email.com",
+  "firstName": "Test User",
+  "id": 123,
+}
+`;
