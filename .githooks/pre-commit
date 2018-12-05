@@ -1,5 +1,7 @@
 #!/bin/sh
 
+echo "Running Pre-Commit hook"
+
 # This script should be saved in a git repo as a hook file, e.g. .git/hooks/pre-receive.
 # It looks for scripts in the .git/hooks/pre-receive.d directory and executes them in order,
 # passing along stdin. If any script exits with a non-zero status, this script exits.
