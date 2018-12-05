@@ -1,0 +1,44 @@
+{
+  "name": "user-management",
+  "version": "1.0.0",
+  "description": "User Management Service - Reposible for adding, getting, updating new users, their contact details, activity etc.",
+  "main": "./src/server.js",
+  "scripts": {
+    "start": "node ./src/server.js",
+    "test": "jest --coverage",
+    "watch": "jest --coverage --watchAll",
+    "lint": "eslint ./src && eslint ./tests",
+    "testOnly": "jest",
+    "checkCodeQuality": "eslint ./src && eslint ./tests && jest --coverage"
+  },
+  "author": "Rithin Chalumuri",
+  "license": "MIT",
+  "jest": {
+    "testEnvironment": "node",
+    "verbose": true,
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": -10
+      }
+    }
+  },
+  "dependencies": {
+    "dotenv": "^6.1.0",
+    "koa": "^2.6.2",
+    "koa-bodyparser": "^4.2.1",
+    "koa-helmet": "^4.0.0",
+    "koa-logger": "^3.2.0",
+    "koa-router": "^7.4.0",
+    "mongoose": "^5.3.13"
+  },
+  "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "jest": "^23.6.0",
+    "supertest": "^3.3.0"
+  }
+}
