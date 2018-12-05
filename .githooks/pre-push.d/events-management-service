@@ -1,4 +1,4 @@
 #!/bin/sh
 
 cd ./services/events-management
-npm run lint
+npm run testOnly
