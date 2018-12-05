@@ -1,0 +1,30 @@
+{
+  "name": "events-management",
+  "version": "1.0.0",
+  "description": "Events Management Service - reponsible for handling local events related operations",
+  "main": "./src/server.js",
+  "scripts": {
+    "start": "node ./src/server.js",
+    "test": "jest --coverage",
+    "watch": "jest --coverage --watchAll",
+    "lint": "eslint ./src && eslint ./tests"
+  },
+  "author": "Rithin Chalumuri",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^6.1.0",
+    "koa": "^2.6.2",
+    "koa-bodyparser": "^4.2.1",
+    "koa-helmet": "^4.0.0",
+    "koa-logger": "^3.2.0",
+    "koa-router": "^7.4.0",
+    "mongoose": "^5.3.13"
+  },
+  "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "jest": "^23.6.0",
+    "supertest": "^3.3.0"
+  }
+}
