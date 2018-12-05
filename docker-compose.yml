@@ -13,6 +13,19 @@ services:
       - MESSAGE_QUEUE=amqp://rabbitmq
     links:
       - rabbitmq
+  
+  events-management:
+    container_name: events-management
+    build:
+      context: ./services/events-management
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3000"
+    environment:
+      - PORT=3000
+      - MESSAGE_QUEUE=amqp://rabbitmq
+    links:
+      - rabbitmq
 
   rabbitmq:
     container_name: rabbitmq
