@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  articles-management:
+    container_name: articles-management
+    build:
+      context: ./services/articles-management
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - MESSAGE_QUEUE=amqp://rabbitmq
+    links:
+      - rabbitmq
+
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:3.7.4
