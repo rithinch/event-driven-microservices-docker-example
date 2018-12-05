@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cd ../../services/articles-management
+echo "Running Article-Management Pre-Commit Hook"
+npm run lint

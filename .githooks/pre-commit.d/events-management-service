@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cd ../../services/events-management
+echo "Running Events-Management Pre-Commit Hook"
+npm run lint
