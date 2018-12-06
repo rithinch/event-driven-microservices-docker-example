@@ -8,7 +8,7 @@
     "test": "jest --coverage",
     "watch": "jest --coverage --watchAll",
     "lint": "eslint ./src && eslint ./tests",
-    "testOnly" : "jest"
+    "testOnly": "jest"
   },
   "jest": {
     "testEnvironment": "node",
@@ -25,13 +25,15 @@
   "author": "Rithin Chalumuri",
   "license": "MIT",
   "dependencies": {
+    "amqp-ts-async": "^1.3.7",
     "dotenv": "^6.1.0",
     "koa": "^2.6.2",
     "koa-bodyparser": "^4.2.1",
     "koa-helmet": "^4.0.0",
     "koa-logger": "^3.2.0",
     "koa-router": "^7.4.0",
-    "mongoose": "^5.3.13"
+    "mongoose": "^5.3.13",
+    "winston": "^3.1.0"
   },
   "devDependencies": {
     "eslint": "^5.9.0",

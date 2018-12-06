@@ -1,4 +1,5 @@
 const Article = require('../models/article.model');
+const articleAddedMessage = require('../message-bus/send/article.added');
 
 const articleController = {
   find: async (ctx) => {
@@ -25,6 +26,7 @@ const articleController = {
     try {
       const newArticle = await Article.create(ctx.request.body);
       ctx.body = newArticle;
+      articleAddedMessage.send(newArticle);
     } catch (err) {
       ctx.throw(422);
     }

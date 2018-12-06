@@ -10,8 +10,8 @@ const config = {
     password: process.env.DB_PASSWORD || 'TlJ7hnd7iRck25fUFFWYgfJFdK2oSH1N2kbBQjFzb66nqFx486JP6eaCKAQrlyn3Cnwxn6MzJtF5ABeyN9CKYQ==',
   },
   services: {
-    mediaManagement: process.env.MEDIA_MANAGEMENT_SERVICE_URI,
   },
+  messageTimeout: 500,
 };
 
 config.startedMessage = `${config.name} is running on port ${config.port}/`;
