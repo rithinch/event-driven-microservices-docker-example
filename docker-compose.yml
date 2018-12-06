@@ -10,7 +10,7 @@ services:
       - "3000:3000"
     environment:
       - PORT=3000
-      - MESSAGE_QUEUE=amqp://rabbitmq
+      - MESSAGE_BUS=amqp://rabbitmq
     links:
       - rabbitmq
   
@@ -23,7 +23,34 @@ services:
       - "3001:3000"
     environment:
       - PORT=3000
-      - MESSAGE_QUEUE=amqp://rabbitmq
+      - MESSAGE_BUS=amqp://rabbitmq
+    links:
+      - rabbitmq
+  
+  user-management:
+    container_name: user-management
+    build:
+      context: ./services/user-management
+      dockerfile: Dockerfile
+    ports:
+      - "3002:3000"
+    environment:
+      - PORT=3000
+      - MESSAGE_BUS=amqp://rabbitmq
+    links:
+      - rabbitmq
+  
+  notification:
+    container_name: notification
+    build:
+      context: ./services/notification
+      dockerfile: Dockerfile
+    environment:
+      - MESSAGE_BUS=amqp://rabbitmq
+      - EMAIL_SERVICE=gmail
+      - EMAIL_ID=noreply.localnewsapplication@gmail.com
+      - EMAIL_PASSWORD=Testing0*
+      - ADMIN_EMAIL = localnewsapp340ct@gmail.com
     links:
       - rabbitmq
 

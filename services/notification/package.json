@@ -1,0 +1,30 @@
+{
+  "name": "notification",
+  "version": "1.0.0",
+  "description": "Notifications Service (Internal)  - Reposible to send out notifications to users regarding various topics",
+  "main": "./src/server.js",
+  "scripts": {
+    "start": "node ./src/server.js",
+    "test": "jest --coverage",
+    "watch": "jest --coverage --watchAll",
+    "lint": "eslint ./src && eslint ./tests",
+    "testOnly" : "jest",
+    "checkCodeQuality" : "eslint ./src && eslint ./tests && jest --coverage"
+  },
+  "author": "Rithin Chalumuri",
+  "license": "MIT",
+  "dependencies": {
+    "amqp-ts-async": "^1.3.7",
+    "dotenv": "^6.2.0",
+    "koa": "^2.6.2",
+    "nodemailer": "^4.7.0",
+    "winston": "^3.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "jest": "^23.6.0",
+    "supertest": "^3.3.0"
+  }
+}
