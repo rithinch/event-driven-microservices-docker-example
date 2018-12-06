@@ -25,7 +25,7 @@ email.sendArticleAddedEmail = async (message) => {
     };
     await transporter.sendMail(mailOptions);
   } catch (err) {
-    logger.error(`Error sending email ${err.name}`);
+    logger.error(`Error sending email ${err}`);
   }
 };
 
