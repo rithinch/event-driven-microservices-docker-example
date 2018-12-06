@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Email Options Shoud set the correct email credentials 1`] = `
+Object {
+  "auth": Object {
+    "pass": "",
+    "user": "",
+  },
+  "service": "",
+}
+`;
+
+exports[`Send Article Added Email Shoud send email when correct details are provided 1`] = `
+Object {
+  "from": "",
+  "html": "Test Article, Test Text",
+  "subject": "LocalNewsApplication - New Article Added!",
+  "to": "",
+}
+`;
+
+exports[`Send Article Added Email Shoud throw an error when an exception occurs 1`] = `
+Object {
+  "from": "",
+  "html": "Test Article, Test Text",
+  "subject": "LocalNewsApplication - New Article Added!",
+  "to": "",
+}
+`;
