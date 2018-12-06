@@ -8,6 +8,7 @@
 // #region Setup Mocks...
 
 jest.mock('../../src/models/article.model');
+jest.mock('../../src/message-bus/send/article.added');
 
 // #endregion
 
