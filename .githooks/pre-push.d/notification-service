@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd ./services/notification
+npm run testOnly
