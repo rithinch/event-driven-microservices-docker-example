@@ -19,12 +19,4 @@ module.exports = {
       logger.error(`Error Listening to ${exchangeName}, ${queueName}: ${err}`);
     }
   },
-
-  stop: () => {
-    try {
-      queue.stopConsumer();
-    } catch (err) {
-      logger.error(`Error Stopping Listesning to ${exchangeName}, ${queueName}: ${err}`);
-    }
-  },
 };
