@@ -5,7 +5,11 @@
   "main": "./src/server.js",
   "scripts": {
     "start": "node ./src/server.js",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "watch": "jest --coverage --watchAll",
+    "lint": "eslint ./src && eslint ./tests",
+    "testOnly" : "jest",
+    "checkCodeQuality" : "eslint ./src && eslint ./tests && jest --coverage"
   },
   "author": "Rithin Chalumuri",
   "license": "MIT",
