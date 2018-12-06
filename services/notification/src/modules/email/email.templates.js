@@ -156,6 +156,5 @@ module.exports.GetRenderedArticleAddedEmailHtml = (title, description) => {
         </tr>
       </table>
     </body>
-  </html>`
+  </html>`;
 };
-
