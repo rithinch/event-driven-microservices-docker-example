@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`config should load default values 1`] = `
+Object {
+  "email": Object {
+    "adminEmailID": "",
+    "password": "",
+    "service": "",
+    "username": "",
+  },
+  "environment": "dev",
+  "messagebus": "amqp://guest:guest@localhost",
+  "name": "Notification Service",
+  "startedMessage": "Notification Service is running",
+}
+`;
