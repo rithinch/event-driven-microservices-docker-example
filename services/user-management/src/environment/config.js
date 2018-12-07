@@ -11,6 +11,7 @@ const config = {
   },
   services: {
   },
+  messageTimeout: 500,
 };
 
 config.startedMessage = `${config.name} is running on port ${config.port}/`;
