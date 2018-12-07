@@ -109,7 +109,7 @@ This allows us to handle inserting of data in two microservices from one request
 
 Understanding the above concepts are the just foundations to get started with the modern trio (Microservices+Events+Docker), there is still a lot more to learn and explore when adapting such an architecture in an production environment. Especially handling issues disaster recovery challenges and monitoring.
 
-I found the book, [Microservices Architecture from O'Reilly](https://www.oreilly.com/library/view/microservice-architecture/9781491956328/) a good read when learning about microservices concepts and how to think about building such systems in production.
+I found the book, [Microservices Architecture from O'Reilly](https://www.oreilly.com/library/view/microservice-architecture/9781491956328/) a good read for learning about microservices concepts and how to approach about building such systems.
 
 ## Running the Unit Tests
 
