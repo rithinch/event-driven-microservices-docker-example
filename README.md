@@ -67,12 +67,12 @@ To add a new user send a post request to http://localhost:3002/api/users with th
 	"firstName": "New",
 	"lastName": "User",
 	"emailAddress": "newuser@new.com",
-	"description": "New User"
+	"description": "New User",
 	"password": "Testing0*"
 }
 ```
 
-## Event-based communication between the microservices - Example
+## Event-Based Communication Between the Microservices - Example
 
 This is where things get interesting, our microservice ecosystem consists of 5 microservices. 4 of them are public facing exposed via an api i.e articles-management, events-management, users-management and authentication. We also have an internal notification microservice (no client apps have access to this). These 5 services form our application microservice ecosystem.
 
@@ -86,25 +86,26 @@ This also means that we can have multiple subscribers to that event, so article-
 
 All our services are can be independently developed, run and scale. :sunglasses:
 
-###Code example:
+### Code example:
 
-Publisher:
+**Publisher**:
 
 If you see the file 'article.added.js' in services/articles-management/src/message-bus/send folder; that is being used in add method of controllers/article.controller.js and is called when the adding finishes.
 
-Subscriber:
+**Subscriber**:
 
 If you see the file 'article.added.js' in services/notification/src/subscriptions folder; that is called in the server.js of the file, so telling the node application to start listening to that service.
 
 Another such event based communication is applied our this demo; when adding the user through user-management service. The responsibility of user-management service is to handle adding of users and user releated activity on the application (their likes, bookmarks) etc. The responsibility of the authentication service is to handle authentication related activites i.e assigning token if the password is valid, password reset routines etc. But users can be created only through user-management service... then how is that user record created in the authentication db? 
 
-Simple. 
-
-Events. 
+Simple.
+.
+.
+**Events**. 
 
 This allows us to handle inserting of data in two microservices from one request. Atomic Transactions are crutial for complex business domain and can be challenging when dealt within a microservices architecture. Event Sourcing patterns play a crucial part in microservice architecture design patterns. 
 
-Microservices + Events + Docker = Awesome DevOps. :bowtie:
+**Microservices + Events + Docker = Awesome DevOps** :bowtie:
 
 Understanding the above concepts are the just foundations to get started with the modern trio (Microservices+Events+Docker), there is still a lot more to learn and explore when adapting such an architecture in an production environment. Especially handling issues disaster recovery challenges and monitoring.
 
