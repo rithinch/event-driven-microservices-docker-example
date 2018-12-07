@@ -40,6 +40,19 @@ services:
     links:
       - rabbitmq
   
+  authentication:
+    container_name: authentication
+    build:
+      context: ./services/authentication
+      dockerfile: Dockerfile
+    ports:
+      - "3003:3000"
+    environment:
+      - PORT=3000
+      - MESSAGE_BUS=amqp://rabbitmq
+    links:
+      - rabbitmq
+  
   notification:
     container_name: notification
     build:
