@@ -11,6 +11,7 @@ const config = {
   },
   services: {
   },
+  jwtsecret: 'yoursecretkey',
 };
 
 config.startedMessage = `${config.name} is running on port ${config.port}/`;

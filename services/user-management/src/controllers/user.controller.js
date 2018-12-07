@@ -1,4 +1,5 @@
 const Users = require('../models/user.model');
+const userAddedMessage = require('../message-bus/send/user.added');
 
 const userController = {
   find: async (ctx) => {
@@ -23,8 +24,9 @@ const userController = {
 
   add: async (ctx) => {
     try {
-      const newEvent = await Users.create(ctx.request.body);
-      ctx.body = newEvent;
+      const newUser = await Users.create(ctx.request.body);
+      userAddedMessage.send(ctx.request.body);
+      ctx.body = newUser;
     } catch (err) {
       ctx.throw(422);
     }
