@@ -1,7 +1,133 @@
 # Local News Application
 
-Proof of Concept for a scalable Local News Application, based on simplified event-driven microservices architecture and Docker containers.
+Proof of Concept for a scalable Local News Application, based on simplified event-driven microservices architecture and Docker containers. :whale:
 
 ## Introduction
 
-## Functionality
+This repo presents a proof of concept of a highly scalable local news application backend. The application was developed keeping a local news domain in mind, but the principles used can easily be applied to design software solutions for any domain. One of the primary business requirements for a local news application domain is that it has to be blazing fast since news updates are requested very often by customers and it would largely benefit the business if the system architecture can support such scale. After evaluating several different system architectures, a hybrid event-based microservices architecture was designed to meet the requirements. This approach leverages RabbitMQ message broker for events communication between the microservices and all the services are containerized using Docker such that they can independently developed, deployed, monitored and scaled.
+
+## Running the entire application stack
+
+If you have docker-compose installed and docker running; it is really simple to spin up the entire application stack.
+
+Make sure you are in the root directory of the repository where the docker-compose file is.
+
+docker-compose up starts it and docker-compose down stops it
+
+Example:
+
+```
+docker-compose build --no-cache
+docker-compose up
+docker-compose down
+```
+
+All the environment variables for the application need to be specified in the docker compose file, each service has environment/config.js which can used in anywhere in it's service application to get the config files for that instance. This allows to seperate environment configurations concerns from our applicaiton code meaning it can easily spun up for local, development and production environments with different db credentials, ports etc.
+
+## Working Features
+
+Once you run the entire application stack using docker compose, you should be able access the public routes below:
+
+Feature | Type | Route | Access
+------------ | ------------- | ------------- | -------------
+Get all articles | GET | http://localhost:3000/api/articles | Public
+Get a specific article | GET | http://localhost:3000/api/articles/:id | Public
+Add a new article | POST | http://localhost:3000/api/articles | Protected
+Update an article | PUT | http://localhost:3000/api/articles/:id | Protected
+Delete an article | DELETE | http://localhost:3000/api/articles/:id | Protected
+Get all events | GET | http://localhost:3001/api/events | Public
+Get a specific event | GET | http://localhost:3001/api/events/:id | Public
+Add a new event| POST | http://localhost:3001/api/events | Protected
+Update an event | PUT | http://localhost:3001/api/events/:id | Protected
+Delete an event | DELETE | http://localhost:3001/api/events/:id | Protected
+Get all users | GET | http://localhost:3002/api/users | Public
+Get a specific user | GET | http://localhost:3002/api/users/:id | Public
+Add a new user | POST | http://localhost:3002/api/users | Protected
+Update an user | PUT | http://localhost:3002/api/users/:id | Protected
+Delete an user | DELETE | http://localhost:3002/api/users/:id | Protected
+Authenticate a user | POST | http://localhost:3003/api/auth | Public
+
+For protected routes: you can post to http://localhost:3003/api/auth first with the following 'body' to get the admin token
+
+```json
+{
+	"emailAddress": "rithinch@gmail.com",
+	"password": "Testing0*"
+}
+```
+
+Then with the token recieved put it in the authorization header for other protected routes.
+
+Ofcourse, now with that in place you can create new users and authenticate with their credentials next time to get a token. :grimacing:
+
+To add a new user send a post request to http://localhost:3002/api/users with the following json body structure and its contents:
+
+```json
+{
+	"firstName": "New",
+	"lastName": "User",
+	"emailAddress": "newuser@new.com",
+	"description": "New User"
+	"password": "Testing0*"
+}
+```
+
+## Event-based communication between the microservices - Example
+
+This is where things get interesting, our microservice ecosystem consists of 5 microservices. 4 of them are public facing exposed via an api i.e articles-management, events-management, users-management and authentication. We also have an internal notification microservice (no client apps have access to this). These 5 services form our application microservice ecosystem.
+
+None of the microservices talk to each other directly (using their api's) ... wait.. what.. then how is notification service sending an email when article-management service adds an article? :confused:
+
+Using a Pub/Sub pattern with RabbitMQ message broker. Which means that mean a client sends a post request to article-management service; the service processes the request and after it's done, it simply publishes a message with some payload to 'article.added' exchange and completes the request.
+
+Now within our ecosystem if any microservice is subscribed to that event it will be alerted and start to process the recieved message with payload. So in this case, our notification service is subscribed to the article.added' exchange. 
+
+This also means that we can have multiple subscribers to that event, so article-management doesn't need to worry about who is subsrcibed it can simply publish the message finish the request. This makes our services loosely coupled and we can easily add more independent services to our ecosystem.
+
+All our services are can be independently developed, run and scale. :sunglasses:
+
+###Code example:
+
+Publisher:
+
+If you see the file 'article.added.js' in services/articles-management/src/message-bus/send folder; that is being used in add method of controllers/article.controller.js and is called when the adding finishes.
+
+Subscriber:
+
+If you see the file 'article.added.js' in services/notification/src/subscriptions folder; that is called in the server.js of the file, so telling the node application to start listening to that service.
+
+Another such event based communication is applied our this demo; when adding the user through user-management service. The responsibility of user-management service is to handle adding of users and user releated activity on the application (their likes, bookmarks) etc. The responsibility of the authentication service is to handle authentication related activites i.e assigning token if the password is valid, password reset routines etc. But users can be created only through user-management service... then how is that user record created in the authentication db? 
+
+Simple. 
+
+Events. 
+
+This allows us to handle inserting of data in two microservices from one request. Atomic Transactions are crutial for complex business domain and can be challenging when dealt within a microservices architecture. Event Sourcing patterns play a crucial part in microservice architecture design patterns. 
+
+Microservices + Events + Docker = Awesome DevOps. :bowtie:
+
+Understanding the above concepts are the just foundations to get started with the modern trio (Microservices+Events+Docker), there is still a lot more to learn and explore when adapting such an architecture in an production environment. Especially handling issues disaster recovery challenges and monitoring.
+
+## Running the Unit Tests
+
+Go to the respective service directory where the package.json is and run tests.
+
+Eg: to run the tests for the articles-management service
+
+```
+cd services/articles-management
+npm test
+```
+
+## Running the linter
+
+Go to the respective service directory where the package.json is and run linter.
+
+Eg: to run the tests for the articles-management service
+
+```
+cd services/articles-management
+npm run lint
+```
+
+All services have adopted the eslint airbnb configuration. A strict linting policy has been followed to ensure consistent code is produced.
