@@ -1,4 +1,5 @@
 jest.mock('../../src/controllers/user.controller');
+jest.mock('../../src/middlewares/jwt');
 
 const request = require('supertest');
 const Koa = require('koa');

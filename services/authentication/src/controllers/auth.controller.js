@@ -8,10 +8,8 @@ const authController = {
   authenticate: async (ctx) => {
     try {
       const user = await Auth.findOne({ emailAddress: ctx.request.body.emailAddress });
-
       if (!user) ctx.throw(404);
       if (!(bcrypt.compareSync(ctx.request.body.password, user.password))) {
-        ctx.throw(401);
         ctx.body = { auth: false, token: null };
       } else {
         const token = jwt.sign({ id: user.emailAddress, role: user.role }, config.jwtsecret, {
@@ -29,14 +27,14 @@ const authController = {
     try {
       user = JSON.parse(message.content.toString());
       const hashedPassword = bcrypt.hashSync(user.password, 8);
-      Auth.create({
+      await Auth.create({
         role: user.role,
         emailAddress: user.emailAddress,
         password: hashedPassword,
       });
       logger.info(`user auth record created - ${user.emailAddress}`);
     } catch (err) {
-      logger.error(`Error creating auth record for user ${user.emailAddress}`);
+      logger.error(`Error creating auth record for user ${user.emailAddress} : ${err}`);
     }
   },
 };

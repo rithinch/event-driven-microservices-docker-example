@@ -25,8 +25,7 @@ const userController = {
   add: async (ctx) => {
     try {
       const newUser = await Users.create(ctx.request.body);
-      newUser.password = ctx.request.body.password;
-      userAddedMessage.send(newUser);
+      userAddedMessage.send(ctx.request.body);
       ctx.body = newUser;
     } catch (err) {
       ctx.throw(422);
