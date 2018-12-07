@@ -1,7 +1,7 @@
 {
-  "name": "user-management",
+  "name": "authentication",
   "version": "1.0.0",
-  "description": "User Management Service - Reposible for adding, getting, updating new users, their contact details, activity etc.",
+  "description": "Authentication Service - Responsible for authenticating users and providing access tokens",
   "main": "./src/server.js",
   "scripts": {
     "start": "node ./src/server.js",
@@ -11,8 +11,6 @@
     "testOnly": "jest",
     "checkCodeQuality": "eslint ./src && eslint ./tests && jest --coverage"
   },
-  "author": "Rithin Chalumuri",
-  "license": "MIT",
   "jest": {
     "testEnvironment": "node",
     "verbose": true,
@@ -25,9 +23,13 @@
       }
     }
   },
+  "author": "Rithin Chalumuri",
+  "license": "MIT",
   "dependencies": {
     "amqp-ts-async": "^1.3.7",
+    "bcryptjs": "^2.4.3",
     "dotenv": "^6.1.0",
+    "jsonwebtoken": "^8.4.0",
     "koa": "^2.6.2",
     "koa-bodyparser": "^4.2.1",
     "koa-helmet": "^4.0.0",
