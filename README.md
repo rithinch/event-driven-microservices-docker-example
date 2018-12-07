@@ -12,7 +12,7 @@ If you have docker-compose installed and docker running; it is really simple to 
 
 Make sure you are in the root directory of the repository where the docker-compose file is.
 
-docker-compose up starts it and docker-compose down stops it
+**docker-compose up** starts it and **docker-compose down** stops it
 
 Example:
 
@@ -56,9 +56,9 @@ For protected routes: you can post to http://localhost:3003/api/auth first with 
 }
 ```
 
-Then with the token recieved put it in the authorization header for other protected routes.
+Then put the recieved token in the authorization header for other protected routes.
 
-Ofcourse, now with that in place you can create new users and authenticate with their credentials next time to get a token. :grimacing:
+Ofcourse, now with that in place you can create new users and authenticate with their credentials next time to get a different token. :grimacing:
 
 To add a new user send a post request to http://localhost:3002/api/users with the following json body structure and its contents:
 
@@ -84,7 +84,7 @@ Now within our ecosystem if any microservice is subscribed to that event it will
 
 This also means that we can have multiple subscribers to that event, so article-management doesn't need to worry about who is subsrcibed it can simply publish the message finish the request. This makes our services loosely coupled and we can easily add more independent services to our ecosystem.
 
-All our services are can be independently developed, run and scale. :sunglasses:
+All our services are can be run, developed and scaled independently. :sunglasses:
 
 ### Code example:
 
@@ -96,18 +96,20 @@ If you see the file 'article.added.js' in services/articles-management/src/messa
 
 If you see the file 'article.added.js' in services/notification/src/subscriptions folder; that is called in the server.js of the file, so telling the node application to start listening to that service.
 
-Another such event based communication is applied our this demo; when adding the user through user-management service. The responsibility of user-management service is to handle adding of users and user releated activity on the application (their likes, bookmarks) etc. The responsibility of the authentication service is to handle authentication related activites i.e assigning token if the password is valid, password reset routines etc. But users can be created only through user-management service... then how is that user record created in the authentication db? 
+Another such event based communication is applied in this demo; when adding the user through user-management service. The responsibility of user-management service is to handle adding of users and user releated activity on the application (their likes, bookmarks) etc. The responsibility of the authentication service is to handle authentication related activites i.e assigning token if the password is valid, password reset routines etc. But users can be created only through user-management service... then how is that user record created in the authentication db? 
 
 Simple.
 .
 .
 **Events**. 
 
-This allows us to handle inserting of data in two microservices from one request. Atomic Transactions are crutial for complex business domain and can be challenging when dealt within a microservices architecture. Event Sourcing patterns play a crucial part in microservice architecture design patterns. 
+This allows us to handle inserting of data in two microservices from one request. Atomic Transactions are crutial for complex business domain and can be challenging when dealt within a microservices architecture. Event Sourcing patterns play a large part in microservice architecture design patterns. 
 
 **Microservices + Events + Docker = Awesome DevOps** :bowtie:
 
 Understanding the above concepts are the just foundations to get started with the modern trio (Microservices+Events+Docker), there is still a lot more to learn and explore when adapting such an architecture in an production environment. Especially handling issues disaster recovery challenges and monitoring.
+
+I found the book, [Microservices Architecture from O'Reilly](https://www.oreilly.com/library/view/microservice-architecture/9781491956328/) a good read when learning about microservices concepts and how to think about building such systems in production.
 
 ## Running the Unit Tests
 
