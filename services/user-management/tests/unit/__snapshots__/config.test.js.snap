@@ -9,6 +9,7 @@ Object {
     "username": "chalumuv-localnewsapplication",
   },
   "environment": "dev",
+  "messageTimeout": 500,
   "messagebus": "amqp://rabbitmq",
   "name": "User Management Service",
   "port": 8080,

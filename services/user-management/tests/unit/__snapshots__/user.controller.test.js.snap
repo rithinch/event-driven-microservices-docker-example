@@ -5,6 +5,5 @@ Object {
   "emailAddress": "test@email.com",
   "firstName": "Test User",
   "id": 123,
-  "password": undefined,
 }
 `;
