@@ -6,6 +6,16 @@ Proof of Concept for a scalable Local News Application, based on simplified even
 
 This repo presents a proof of concept of a highly scalable local news application backend. The application was developed keeping a local news domain in mind, but the principles used can easily be applied to design software solutions for any domain. One of the primary business requirements for a local news application domain is that it has to be blazing fast since news updates are requested very often by customers and it would largely benefit the business if the system architecture can support such scale. After evaluating several different system architectures, a hybrid event-based microservices architecture was designed to meet the requirements. This approach leverages RabbitMQ message broker for events communication between the microservices and all the services are containerized using Docker such that they can independently developed, deployed, monitored and scaled.
 
+## Full Application Backend Demo
+
+[![Video](https://img.youtube.com/vi/F2uVu6hKZTc/0.jpg)](https://www.youtube.com/watch?v=F2uVu6hKZTc)
+
+The following video demo shows all the currently supported features for the proof of concept. It goes through how to run the application stack and perform operations requesting the api's.
+
+Event-based communication samples are highlighted in following two scenario's:
+* When a new article is added through articles-management service, the notification service picks up that event and sends an email to the admin with the article details.
+* When a new user is added through user-management service, the authentication service picks up that event and stores the login details of the user. Demonstrating Atomic Transactions in a Microservices Architecture. 
+
 ## Running the entire application stack
 
 If you have docker-compose installed and docker running; it is really simple to spin up the entire application stack.
@@ -120,6 +130,12 @@ Eg: to run the tests for the articles-management service
 ```
 cd services/articles-management
 npm test
+```
+
+To run all the tests for all microservices, a script 'run_all_tests' has been created in the root directory.
+
+```
+./run_all_tests
 ```
 
 ## Running the linter
