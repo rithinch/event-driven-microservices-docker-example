@@ -1,0 +1,17 @@
+#!/bin/sh
+
+cd ./services/articles-management
+npm test
+cd -
+
+cd ./services/events-management
+npm test
+cd -
+
+cd ./services/user-management
+npm test
+cd - 
+
+cd ./services/notification
+npm test
+cd -
