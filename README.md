@@ -2,6 +2,8 @@
 
 Proof of Concept for a scalable Local News Application, based on simplified event-driven microservices architecture and Docker containers. :whale:
 
+[![HitCount](http://hits.dwyl.io/rithinch/Event-Driven-Microservices-Sample.svg)](http://hits.dwyl.io/rithinch/Event-Driven-Microservices-Sample)
+
 ## Introduction
 
 This repo presents a proof of concept of a highly scalable local news application backend. The application was developed keeping a local news domain in mind, but the principles used can easily be applied to design software solutions for any domain. One of the primary business requirements for a local news application domain is that it has to be blazing fast since news updates are requested very often by customers and it would largely benefit the business if the system architecture can support such scale. After evaluating several different system architectures, a hybrid event-based microservices architecture was designed to meet the requirements. This approach leverages RabbitMQ message broker for events communication between the microservices and all the services are containerized using Docker such that they can independently developed, deployed, monitored and scaled.
