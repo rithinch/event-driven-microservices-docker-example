@@ -1,10 +1,13 @@
-# Local News Application
+# Event-Driven Microservices Backend Sample
 
 Proof of Concept for a scalable Local News Application, based on simplified event-driven microservices architecture and Docker containers. :whale:
 
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/rithinch) 
 [![HitCount](http://hits.dwyl.io/rithinch/Event-Driven-Microservices-Sample.svg)](http://hits.dwyl.io/rithinch/Event-Driven-Microservices-Sample)
+
+[![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 
 ## Introduction
 
