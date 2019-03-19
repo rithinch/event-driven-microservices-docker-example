@@ -2,7 +2,7 @@
 
 Proof of Concept for a scalable Local News Application, based on simplified event-driven microservices architecture and Docker containers. :whale:
 
-[![HitCount](http://hits.dwyl.io/rithinch/Event-Driven-Microservices-Sample.svg)](http://hits.dwyl.io/rithinch/Event-Driven-Microservices-Sample)
+![GitHub](https://img.shields.io/github/license/rithinch/Event-Driven-Microservices-Sample.svg) [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/rithinch) [![HitCount](http://hits.dwyl.io/rithinch/Event-Driven-Microservices-Sample.svg)](http://hits.dwyl.io/rithinch/Event-Driven-Microservices-Sample)
 
 ## Introduction
 
