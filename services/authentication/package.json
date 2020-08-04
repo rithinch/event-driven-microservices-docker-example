@@ -9,7 +9,9 @@
     "watch": "jest --coverage --watchAll",
     "lint": "eslint ./src && eslint ./tests",
     "testOnly": "jest",
-    "checkCodeQuality": "eslint ./src && eslint ./tests && jest --coverage"
+    "checkCodeQuality": "eslint ./src && eslint ./tests && jest --coverage",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "jest": {
     "testEnvironment": "node",
@@ -35,8 +37,9 @@
     "koa-helmet": "^4.0.0",
     "koa-logger": "^3.2.0",
     "koa-router": "^7.4.0",
-    "mongoose": "^5.3.13",
-    "winston": "^3.1.0"
+    "mongoose": "^5.7.5",
+    "winston": "^3.1.0",
+    "snyk": "^1.369.3"
   },
   "devDependencies": {
     "eslint": "^5.9.0",
@@ -44,5 +47,6 @@
     "eslint-plugin-import": "^2.14.0",
     "jest": "^23.6.0",
     "supertest": "^3.3.0"
-  }
+  },
+  "snyk": true
 }
