@@ -2,6 +2,7 @@
 
 Proof of Concept for a scalable Local News Application, based on simplified event-driven microservices architecture and Docker containers. :whale:
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=rithinch_event-driven-microservices-docker-example&metric=alert_status)](https://sonarcloud.io/dashboard?id=rithinch_event-driven-microservices-docker-example)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/rithinch) 
 [![HitCount](http://hits.dwyl.io/rithinch/Event-Driven-Microservices-Sample.svg)](http://hits.dwyl.io/rithinch/Event-Driven-Microservices-Sample)

@@ -32,13 +32,13 @@
     "bcryptjs": "^2.4.3",
     "dotenv": "^6.1.0",
     "jsonwebtoken": "^8.5.1",
-    "koa": "^2.6.2",
+    "koa": "^2.13.0",
     "koa-bodyparser": "^4.2.1",
-    "koa-helmet": "^4.0.0",
+    "koa-helmet": "^4.2.1",
     "koa-logger": "^3.2.0",
     "koa-router": "^7.4.0",
-    "mongoose": "^5.7.5",
-    "winston": "^3.1.0",
+    "mongoose": "^5.9.24",
+    "winston": "^3.3.3",
     "snyk": "^1.369.3"
   },
   "devDependencies": {
