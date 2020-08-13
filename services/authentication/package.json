@@ -37,7 +37,7 @@
     "koa-helmet": "^4.2.1",
     "koa-logger": "^3.2.0",
     "koa-router": "^7.4.0",
-    "mongoose": "^5.9.24",
+    "mongoose": "^5.9.25",
     "winston": "^3.3.3",
     "snyk": "^1.369.3"
   },
