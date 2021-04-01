@@ -37,9 +37,9 @@
     "koa-helmet": "^4.2.1",
     "koa-logger": "^3.2.1",
     "koa-router": "^7.4.0",
-    "mongoose": "^5.9.26",
+    "mongoose": "^5.12.3",
     "winston": "^3.3.3",
-    "snyk": "^1.369.3"
+    "snyk": "^1.518.0"
   },
   "devDependencies": {
     "eslint": "^5.9.0",
