@@ -61,11 +61,30 @@ services:
     environment:
       - MESSAGE_BUS=amqp://rabbitmq
       - EMAIL_SERVICE=gmail
-      - EMAIL_ID=noreply.localnewsapplication@gmail.com
-      - EMAIL_PASSWORD=Testing0*
-      - ADMIN_EMAIL=localnewsapp340ct@gmail.com
+      - EMAIL_ID=amin@bunnyshell.com
+      - EMAIL_PASSWORD=bunnyshell
+      - ADMIN_EMAIL=amin@bunnyshell.com
     links:
       - rabbitmq
+
+  frontend:
+    container_name: frontend
+    build: 
+      context: ./services/frontend
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "80:3005"
+    environment:
+      - PORT=3005
+
+  # mongodb:
+  #   image: mongo:latest
+  #   ports:
+  #     - 27017:27017
+  #   environment:
+  #     - MONGO_INITDB_ROOT_USERNAME=bunnyshell
+  #     - MONGO_INITDB_ROOT_PASSWORD=bunnyshell
 
   rabbitmq:
     container_name: rabbitmq

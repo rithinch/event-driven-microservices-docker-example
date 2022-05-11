@@ -25,6 +25,7 @@ const articleController = {
   add: async (ctx) => {
     try {
       const newArticle = await Article.create(ctx.request.body);
+      console.log(ctx.request.body)
       ctx.body = newArticle;
       articleAddedMessage.send(newArticle);
     } catch (err) {

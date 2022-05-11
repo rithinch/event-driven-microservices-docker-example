@@ -10,5 +10,6 @@ router.prefix(`/${config.baseAPIRoute}/${api}`);
 
 // POST /api/auth
 router.post('/', authController.authenticate);
+router.post('/add', authController.add)
 
 module.exports = router;

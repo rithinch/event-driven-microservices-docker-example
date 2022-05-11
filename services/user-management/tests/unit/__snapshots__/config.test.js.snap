@@ -4,12 +4,12 @@ exports[`config should load default values 1`] = `
 Object {
   "baseAPIRoute": "api",
   "db": Object {
-    "password": "TlJ7hnd7iRck25fUFFWYgfJFdK2oSH1N2kbBQjFzb66nqFx486JP6eaCKAQrlyn3Cnwxn6MzJtF5ABeyN9CKYQ==",
-    "uri": "mongodb://chalumuv-localnewsapplication.documents.azure.com:10255/?ssl=true&replicaSet=globaldb",
-    "username": "chalumuv-localnewsapplication",
+    "password": "bunnyshell",
+    "uri": "mongodb+srv://cluster0.jna5m.mongodb.net/eventdrivendb?retryWrites=true&w=majority",
+    "username": "bunnyshell",
   },
   "environment": "dev",
-  "jwtsecret": "yoursecretkey",
+  "jwtsecret": "bunnyshell",
   "messageTimeout": 500,
   "messagebus": "amqp://rabbitmq",
   "name": "User Management Service",

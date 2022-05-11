@@ -13,15 +13,18 @@ router.prefix(`/${config.baseAPIRoute}/${api}`);
 router.get('/', eventsController.find);
 
 // POST /api/events
-router.post('/', jwt, eventsController.add);
+// router.post('/', jwt, eventsController.add);
+router.post('/', eventsController.add);
 
 // GET /api/events/id
 router.get('/:id', eventsController.findById);
 
 // PUT /api/events/id
-router.put('/:id', jwt, eventsController.update);
+// router.put('/:id', jwt, eventsController.update);
+router.put('/:id', eventsController.update);
 
 // DELETE /api/events/id
-router.delete('/:id', jwt, eventsController.delete);
+// router.delete('/:id', jwt, eventsController.delete);
+router.delete('/:id', eventsController.delete);
 
 module.exports = router;

@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.2",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.7"
+  } 
+}

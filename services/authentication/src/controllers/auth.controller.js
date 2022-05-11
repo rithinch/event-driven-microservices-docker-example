@@ -25,7 +25,8 @@ const authController = {
   add: async (message) => {
     let user;
     try {
-      user = JSON.parse(message.content.toString());
+      user = message.request.body;
+      console.log(user)
       const hashedPassword = bcrypt.hashSync(user.password, 8);
       await Auth.create({
         role: user.role,
