@@ -31,7 +31,7 @@
     "koa": "^2.6.2",
     "koa-bodyparser": "^4.2.1",
     "koa-helmet": "^4.0.0",
-    "koa-jwt": "^3.5.1",
+    "koa-jwt": "^4.0.4",
     "koa-logger": "^3.2.0",
     "koa-router": "^7.4.0",
     "mongoose": "^5.3.13",
