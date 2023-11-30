@@ -39,7 +39,7 @@
     "koa-router": "^7.4.0",
     "mongoose": "^5.9.26",
     "winston": "^3.3.3",
-    "snyk": "^1.369.3"
+    "snyk": "^1.685.0"
   },
   "devDependencies": {
     "eslint": "^5.9.0",
